@@ -1,0 +1,305 @@
+/* Общие стили */
+body {
+
+	background:  url('/курсач/вход/картинки/1580829049_18-p-kadri-iz-filma-boitsovskii-klub-26.jpg');
+	background-position: center;
+	background-size: cover;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	background-color: #f7f7f7;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #ee8080;
+	text-shadow:0 0 25px red ;
+  }
+  .nameFilm{
+	text-align: center;
+	margin-bottom: 40px;
+  }
+  
+  .container {
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	box-shadow: 0 0 25px red;
+	border-radius: 10px;
+	margin-bottom: 50px;
+	backdrop-filter: blur(10px);
+	background-color: #330303a1;
+  }
+  .profile-header1{
+	font-size: 30px;
+	
+	  }
+  
+.profile-container {
+	
+	border-radius: 10px;
+	box-shadow: 0 0 25px red;
+	padding: 20px;
+	margin: 20px auto;
+	max-width: 900px;
+	backdrop-filter: blur(45px);
+	
+  }
+  .header__content {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px;
+	height: 60px;
+  }
+  
+  .header__logo {
+	font-size: 32px;
+	text-decoration: none;
+	color: #ffffff;
+  }
+  
+  .header__search {
+	padding: 8px;
+	border: 2px solid #1a191f;
+	border-radius: 5px;
+	outline: none;
+  }
+  li{
+	height: 80%;
+	width: 1500px;
+	padding: 0px;
+	margin: 0px;
+	display: grid;
+  }
+  
+  ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  img {
+	max-width: 100%;
+  }
+  
+  /* Стили шапки */
+ 
+  
+  nav {
+	float: right;
+  }
+  
+  nav ul {
+	margin: 0;
+	padding: 0;
+  }
+  
+  nav li {
+	display: inline-block;
+	margin-left: 10px;
+  }
+  
+  nav a {
+	color: #fff;
+	text-decoration: none;
+  }
+  
+  nav a:hover {
+	text-decoration: underline;
+  }
+  
+  /* Стили основного контента */
+  main {
+	margin: 20px;
+	
+  }
+  
+  .movie-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  }
+  
+  .movie-list li {
+	width: 70%;
+	margin-bottom: 40px;
+	border-radius: 5%;
+	padding: 20px;
+	background-color: #360404a4;
+	box-shadow: 0 0 25px red;
+	backdrop-filter: blur(10px);
+  }
+  
+  .movie-list li img {
+	display: block;
+  margin: 0 auto 10px;
+  width: 100%;
+  max-width: 300px; 
+	border-radius: 5%;
+	box-shadow: 0 0 25px red;
+  }
+  
+  .movie-list li h3 {
+	margin: 0;
+	font-size: 24px;
+
+  }
+  
+  .movie-list li p {
+	margin: 10px 0;
+	font-size: 25px;
+	color: #ee8080;
+	text-shadow:0 0 25px red ;
+  }
+  
+  .rating {
+	display: inline-block;
+  }
+  
+  .rating input {
+	display: none;
+  }
+  
+  .rating label {
+	background: url('/курсач/вход/картинки/1644895036_33-fikiwiki-com-p-kartinka-boitsovskii-klub-37.jpg');
+	cursor: pointer;
+	background-position: center;
+	background-size: cover;
+	width: 40px;
+	height: 40px;
+	background-color: #050000;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 4px;
+  }
+  
+  .rating label:hover,
+  .rating label:hover ~ label,
+  .rating input:checked ~ label {
+	background-color: #ff0;
+	filter: invert(1);
+  }
+  .num-ratings {
+	margin-left: 10px;
+	font-size: 16px;
+  }
+  
+  .comments {
+	margin-top: 20px;
+  }
+  
+  .comments h4 {
+	margin: 0 0 10px;
+	font-size: 18px;
+  }
+  
+  .comment-list li {
+	width: 97%;
+	margin-bottom: 20px;
+	background-color: rgba(214, 64, 64, 0.534);
+	opacity: 0.7;
+  }
+  .comment-list li:hover{
+	background-color: rgba(231, 54, 54, 0.63);
+  }
+  
+  .comment-list li .username {
+	font-weight: bold;
+	font-size: 24px;
+	color: #fdfdfd;
+	text-shadow:0 0 25px red ;
+  }
+  
+  .comment-list li .date {
+	margin-left: 10px;
+	color: #090436;
+	font-size: 14px;
+  }
+  
+  .comment-list li p {
+	margin: 10px 0;
+	font-size: 20px;
+	color: #fdfdfd;
+	text-shadow:0 0 25px red ;
+
+  }
+  
+  form label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: bold;
+  }
+  .l1{
+	font-size: 24px;
+	color: #ee8080;
+	text-shadow:0 0 25px red ;
+	
+  }
+  form input[type="text"],
+  form textarea {
+	width: 50%;
+	padding: 10px;
+	font-size: 16px;
+	margin-left: 20%;
+	border: 1px solid #7a0202;
+	box-shadow: 0 0 25px red;
+	border-radius: 4px;
+  }
+  
+  form div input[type="submit"] {
+	background-color: #ffffffc7;
+	color: #750b67;
+	padding: 10px 20px;
+	font-size: 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-shadow: 0 0 25px red;
+  }
+  
+  form input[type="submit"]:hover {
+	background-color: #ee8080;
+  }
+  .comment{
+	background-color: rgb(7, 7, 63);
+	border-radius: 5%;
+	box-shadow:0 0 10px rgb(7, 7, 63) ;
+  }
+  button.close-btn {
+	position: relative;
+	width: 24px;
+	height: 24px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+  }
+  
+  button.close-btn::before, button.close-btn::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 16px;
+	height: 2px;
+	background-color: #000;
+	transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+  button.close-btn::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  
+  
+  
+  
+  
+  
+  
+  

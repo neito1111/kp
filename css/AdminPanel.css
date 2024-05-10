@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+	background: url('/курсач/вход/картинки/1580829049_18-p-kadri-iz-filma-boitsovskii-klub-26.jpg');
+	background-position: center;
+	background-size: cover;
+	font-family: "Open Sans", sans-serif;
+	backdrop-filter: blur(10px);
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #5a1010;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+.accounts-list {
+    list-style: none;
+    padding: 0;
+}
+
+.accounts-list li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.accounts-list li:last-child {
+    border-bottom: none;
+}
+
+/* Дополнительные стили для каждого аккаунта */
+.accounts-list li span {
+    font-weight: bold;
+    color: #ff0000; /* Красный цвет */
+}
+
+.accounts-list li p {
+    margin: 5px 0;
+    color: #666;
+}
+.header__content {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px;
+	height: 60px;
+  }
+  
+  .header__logo {
+	font-size: 32px;
+	text-decoration: none;
+	color: #ffffff;
+  }
+  
+  .header__search {
+	padding: 8px;
+	border: 2px solid #1a191f;
+	border-radius: 5px;
+	outline: none;
+  }
+  
+  .movies {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+  }
+  .profile-header{
+font-size: 30px;
+
+  }

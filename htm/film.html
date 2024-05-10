@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="eu">
+  <head>
+  <title>Movie Reviews</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/курсач/css/film.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+<body>
+  <header class="container">
+		<div class="header__content">
+		  <a href="/курсач/htm/main.html" class="header__logo">StreetMovie</a>
+	
+		
+	   <form class="profile-header1"><a href="/курсач/htm/profile.html"><ion-icon name="person-circle-outline"></ion-icon> </a></form>
+		</div>
+	  </header>
+  <main>
+  
+    <ul class="movie-list">
+      <li class="li1">
+        <h3 class="nameFilm" style="font-size: 30px;"><span id="nameMovie"></span></h3>
+        <br>
+        <img id="poster" src=""  alt="Название фильма">
+        <div class="rating">
+          <p>Оцените фильм в тайлерах</p>
+          <input type="radio" id="star5" name="rating" value="5" required>
+          <label for="star5"></label>
+          <input type="radio" id="star4" name="rating" value="4" required>
+          <label for="star4"></label>
+          <input type="radio" id="star3" name="rating" value="3" required>
+          <label for="star3"></label>
+          <input type="radio" id="star2" name="rating" value="2" required>
+          <label for="star2"></label>
+          <input type="radio" id="star1" name="rating" value="1" required>
+          <label for="star1"></label>
+        </div>
+        
+        <h3>Год выхода фильма-<span id="yearMovie"></span></h3>
+        <br>
+        <h3>Рейтинг фильма-<span id="averageRatingMovie"></span></h3>
+        <br>
+        <h3>Жанр-<span id="genreMovie"></span></h3>
+        <br>
+        <h3>Длительность фильма-<span id="timeMovie"></span></h3>
+        <br>
+        <p>Описание фильма-<span id="discriptMovie"></span></p>
+        <br>
+        <label for="comment" class="l1">Комментарии:</label>
+       
+         <div class="comments">
+         
+        </div>
+      <form action="">>
+      <div class="comments-save">
+       
+            <textarea placeholder="Напишите комментарий..." id="comment1" name="comment"></textarea>
+            <input type="submit" value="Оставить комментарий" id="commAdd-btn" required>
+      </div>
+    </form>
+      <!-- Другие фильмы здесь -->
+    </ul>
+  </main>
+  <script type="module" src="/курсач/js/film.js"></script>
+  	  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  
+</body>
+</html>

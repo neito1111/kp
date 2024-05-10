@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<link rel="stylesheet" href="/курсач/css/profile.css">
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<header class="container">
+		<div class="header__content">
+		  <a href="/курсач/htm/main.html" class="header__logo">StreetMovie</a>
+		  
+		 <!-- <form>
+			  <a href="/курсач/htm/SingIn.html" >Войти</a>
+		  </form>-->
+	   <form class="profile-header1"><a href="/курсач/htm/profile.html"><ion-icon name="person-circle-outline"></ion-icon> </a></form>
+		</div>
+	  </header>
+	<div class="profile-container">
+		<div class="profile-header">
+			<div class="avatar">
+				<img id="avatar-img" src="" >
+				<label for="avatar-upload"><svg width="32" height="32" aria-hidden="true" focusable="false" data-prefix="fas"
+					data-icon="camera" class="svg-inline--fa fa-camera fa-w-16" role="img"
+					xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+					<path fill="white"
+					d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z">
+					</path>
+					</svg></label>
+				<input id="avatar-upload" type="file" accept="image/*">
+			  </div>
+		 
+		  <div class="profile-info">
+			<h1 >Имя:<span id="name1"></span><br>
+				Фамилия:<span id="surname"></span><br>
+				email:<span id="email"></span><br>
+				Роль:<span id="role"></span><br>
+			</h1>
+			
+		  </div>
+		</div>
+		<div class="profile-content">
+		  <div class="profile-sidebar">
+			<p style="font-size: 15px; color: #ee8080;
+			text-shadow:0 0 25px red ">Поменять пароль</p>
+			<form id="change-password-form">
+				<label style="font-size: 15px; color: #ee8080;
+				text-shadow:0 0 25px red " for="old-password">Старый пароль</label>
+				<br><br>
+				<input type="password" style="background-color: #ffffffc7;
+				color: #750b67;
+				padding: 10px 20px;
+				font-size: 16px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				box-shadow: 0 0 25px red;" class="form-control" id="old-password" required>
+				<br><br>
+				<label style="font-size: 15px; color: #ee8080;
+				text-shadow:0 0 25px red " for="new-password">Новый пароль</label>
+				<br><br>
+				<input type="password" style="background-color: #ffffffc7;
+				color: #750b67;
+				padding: 10px 20px;
+				font-size: 16px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				box-shadow: 0 0 25px red;" class="form-control" id="new-password" required>
+				<br><br>
+				<label style="font-size: 15px; color: #ee8080;
+				text-shadow:0 0 25px red " for="repeat-new-password">Подтверждение нового пароля</label>
+				<br><br>
+				<input type="password" style="background-color: #ffffffc7;
+				color: #750b67;
+				padding: 10px 20px;
+				font-size: 16px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				box-shadow: 0 0 25px red;" class="form-control" id="repeat-new-password" required>
+				<br><br>
+				<button type="submit" class="btn-primary">Изменить пароль</button>
+				<p id="password-message"></p>
+			</form>
+		  </div>
+		  <div class="profile-main">
+			
+			<div class="exit" >
+				<button type="submit" class="btn-exit" onclick="onLogoutClick()" >Выйти</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	 
+	  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="/курсач/js/profile.js"></script>
+</body>
+</html>

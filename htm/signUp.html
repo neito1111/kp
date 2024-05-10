@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/курсач/css/signUp.css">
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	
+	<title>Document</title>
+</head>
+<body>
+	<header class="container">
+		<div class="header__content">
+		  <a href="/курсач/htm/main.html" class="header__logo">StreetMovie</a>
+		 
+		  <!--<form>
+			  <a href="/курсач/htm/SingIn.html" >Войти</a>
+		  </form>-->
+		</div>
+	  </header>
+	<section >
+		<div class="form-box">
+			<div class="form-value">
+				<form action="" id="reg-form">
+					<h2>Регистрация</h2>
+					<div class="inputbox">
+						<ion-icon name="finger-print-outline"></ion-icon>
+						<input type="text" id="name" required>
+						<label for="">Имя</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="finger-print-outline"></ion-icon>
+						<input type="tetx" 	id="surname"  required>
+						<label for="">Фамилия</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="mail-outline"></ion-icon>
+						<input type="email" id="email" required>
+						<label for="">Email</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="lock-closed-outline"></ion-icon>
+						<input type="password" id="password" required>
+						<label for="">Пароль</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="lock-closed-outline"></ion-icon>
+						<input type="password" id="password1" required>
+						<label for="">Подтвердите пароль</label>
+					</div>
+					
+					<button id="reg-btn">Зарегистрироваться</button>
+					<p style="text-align: center;color: red;font-size: 20px;" id="error-message"></p>
+					<div class="registr">
+						<p>Уже есть аккаунт?<a href="/курсач/htm/SingIn.html">Войти</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="/курсач/js/signUp.js"></script>
+
+
+</body>
+</html>

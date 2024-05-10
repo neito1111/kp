@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<link rel="stylesheet" href="/курсач/css/signIn.css">
+	
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<header class="container">
+		<div class="header__content">
+		  <a href="/курсач/htm/main.html" class="header__logo">StreetMovie</a>
+		  
+		 <!-- <form>
+			  <a href="/курсач/htm/SingIn.html" >Войти</a>
+		  </form>
+		-->
+		</div>
+	  </header>
+	<section >
+		<div class="form-box">
+			<div class="form-value">
+				<form action="" id="auth-form">
+					<h2>Login</h2>
+					<div class="inputbox">
+						<ion-icon name="mail-outline"></ion-icon>
+						<input type="email" id="Email" required>
+						<label for="">email</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="lock-closed-outline"></ion-icon>
+						<input type="password"  id="password" required>
+						<label for="">password</label>
+					</div>
+					<div class="forget">
+						<label for=""><input type="checkbox" name="" id="">Remember Me  <a href="#">Забыл пароль</a></label>
+					</div>
+					<button id="enter-button">Log In</button>
+					<p style="text-align: center;color: red;font-size: 20px;" id="error-message"></p>
+					<div class="registr">
+						<p>Нету аккаунта?<a href="/курсач/htm/signUp.html">Зарегистрироваться</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="../js/signIn.js"></script>
+<script src="/курсач/js/profile.js"></script>
+
+</body>
+</html>
