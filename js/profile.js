@@ -15,82 +15,117 @@ const avatarContainer = document.getElementById('avatar-container');
 const avatarImg = document.getElementById('avatar-img');
 const exBtn=document.getElementById("btn-exit");
 const image=localStorage.getItem('IMG');
-avatarInput.addEventListener('change',async (event) => {
-    event.preventDefault();
-    const email = localStorage.getItem('email');
-    const file = avatarInput.files[0];
-    const formData = new FormData();
-    formData.append('img', file);
-    formData.append('email', email);
-    axios.put('http://localhost:5000/api/user/uploadAvatarIMG', formData, {})
-    .then(response => {
-        avatarImg.src = `../js/server/static/${response.data.fileName}`;
-    }).catch(error => {
-        console.error(error);
-    });
-});
-// Получаем информацию о пользователе
-axios.get('http://localhost:5000/api/user/me', {
-    params: { email: email, password: password }
-})
-    .then(response => {
-        const user = response.data.data;
-        emailEl.textContent = user.email;
-        localStorage.setItem('role',user.role);
-        roleEl.textContent = user.role;
-		nameEl.textContent=user.name1;
-		surnameEl.textContent=user.surname;
-        avatarImg.src=`../js/server/static/${user.img}`
-		
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+const quitButton=document.getElementById('quitButt');
+const inputs = document.querySelectorAll('input');
+const changePassword=document.getElementById('change-password-form')
+const divProfileContent=document.getElementById('profile-content')
+if (id){
+    console.log(id);
 
+    axios.post(`http://localhost:5000/api/user/userInfoById`, {
+        id
+      })
+    .then(response => {
+      const user = response.data.data;
+      emailEl.textContent = user.email;
+      roleEl.textContent = user.role;
+      nameEl.textContent = user.name1;
+      surnameEl.textContent = user.surname;
+      avatarImg.src = `../js/server/static/${user.img}`;
     })
     .catch(error => {
-        console.error(error);
+      console.error(error);
     });
-   
+    quitButton.style.display='none';
+    inputs.forEach(input => {
 
-    async function onLogoutClick() {
-        axios.post('http://localhost:5000/api/user/logout')
-            .then(response => {
-                console.log(response.data);
-                console.log(response.data);
-                localStorage.removeItem('token');
-                localStorage.removeItem('email');
-                localStorage.removeItem('password');
-                localStorage.removeItem('role')
-                window.location.href = "SingIn.html";
-            })
-            .catch(error => {
-                console.error(error.response.data.message);
-            });
+     input.style.display = 'none';
     }
+    );
+    changePassword.style.display='none',
+    divProfileContent.style.display='none'
 
-    passwordForm.addEventListener('submit', e => {
-        e.preventDefault();
+}
+
+    avatarInput.addEventListener('change',async (event) => {
+        event.preventDefault();
+        const email = localStorage.getItem('email');
+        const file = avatarInput.files[0];
+        const formData = new FormData();
+        formData.append('img', file);
+        formData.append('email', email);
+        axios.put('http://localhost:5000/api/user/uploadAvatarIMG', formData, {})
+        .then(response => {
+            avatarImg.src = `../js/server/static/${response.data.fileName}`;
+        }).catch(error => {
+            console.error(error);
+        });
+    });
+    // Получаем информацию о пользователе
+    axios.get('http://localhost:5000/api/user/me', {
+        params: { email: email, password: password }
+    })
+        .then(response => {
+            const user = response.data.data;
+            emailEl.textContent = user.email;
+            localStorage.setItem('role',user.role);
+            roleEl.textContent = user.role;
+            nameEl.textContent=user.name1;
+            surnameEl.textContent=user.surname;
+            avatarImg.src=`../js/server/static/${user.img}`
+            
     
-        const oldPassword = document.getElementById('old-password').value;
-        const newPassword = document.getElementById('new-password').value;
-        const repeatNewPassword = document.getElementById('repeat-new-password').value;
-    
-        if (newPassword !== repeatNewPassword) {
-            passwordMessage.textContent = 'Пароли не совпадают';
-            return;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+        async function onLogoutClick() {
+            axios.post('http://localhost:5000/api/user/logout')
+                .then(response => {
+                    console.log(response.data);
+                    console.log(response.data);
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role')
+                    window.location.href = "SingIn.html";
+                })
+                .catch(error => {
+                    console.error(error.response.data.message);
+                });
         }
     
-        axios.put('http://localhost:5000/api/user/change-password', {
-            email: email,
-            oldPassword: oldPassword,
-            newPassword: newPassword,
-        }, {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-            .then(response => {
-                passwordMessage.textContent = response.data.message;
+        passwordForm.addEventListener('submit', e => {
+            e.preventDefault();
+        
+            const oldPassword = document.getElementById('old-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const repeatNewPassword = document.getElementById('repeat-new-password').value;
+        
+            if (newPassword !== repeatNewPassword) {
+                passwordMessage.textContent = 'Пароли не совпадают';
+                return;
+            }
+        
+            axios.put('http://localhost:5000/api/user/change-password', {
+                email: email,
+                oldPassword: oldPassword,
+                newPassword: newPassword,
+            }, {
+                headers: { Authorization: `Bearer ${token}` },
             })
-            .catch(error => {
-                passwordMessage.textContent = error.response.data.message;
-            });
-    });
+                .then(response => {
+                    passwordMessage.textContent = response.data.message;
+                })
+                .catch(error => {
+                    passwordMessage.textContent = error.response.data.message;
+                });
+        });
+
+
+
   /*  const UploadImage = () => {
         const [uploadedImage, setUploadedImage] = useState(null);
         const onDrop = async (acceptedFiles) => {

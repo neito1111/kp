@@ -5,7 +5,7 @@ const client = new Client({
   port: 5000,
   user: 'postgres',
   password: 'qwe',
-  database: 'kursach2'
+  database: 'kursach3'
 });
 
 export default client;

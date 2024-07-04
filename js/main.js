@@ -201,11 +201,11 @@ console.log(movieId)
   console.log(movieName)
   const movieYear=respData.year;
   console.log(movieYear)
-  const avarageRating='4.5'
+  const avarageRating='0'
   console.log(avarageRating)
   const moviePeople='0';
   console.log(moviePeople)
-  const movieGenre='Боевик'
+  const movieGenre = respData.genres.map(el => el.genre).join(', ');
   console.log(movieGenre)
   const movieTime=respData.filmLength
   console.log(movieTime)

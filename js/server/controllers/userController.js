@@ -89,6 +89,40 @@ class UserController {
             return res.status(400).json({message: error.message});
         }
     }
+    async deleteUser(req ,res ,next){
+        const {id}=req.body ;
+        console.log(id);
+        try{
+            const user =await User.findOne({where:{id}});
+            if (!user) {
+                return res.status(404).json({ message: 'Пользователь не найден' });
+            }
+            await user.destroy();
+            
+             res.status(200).json({ message: 'Пользователь успешно удален' });
+        }
+        catch (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Что-то пошло не так' });
+        }
+    }
+    async userInfoById(req ,res ,next){
+        const {id}=req.body ;
+        console.log(req.body);
+        try{
+            const user =await User.findOne({where:{id}});
+            if (!user) {
+                return res.status(404).json({ message: 'Пользователь не найден' });
+            }
+           const { email,role,name1,surname,img} = user;
+            return res.json({data: { email, role,name1,surname,img}});
+        }
+        catch (err) {
+            console.error(err);
+            res.status(500).json({ message: 'Что-то пошло не так' });
+        }
+    }
+
     async changePassword(req, res,) {
         const { email, oldPassword, newPassword } = req.body;
 

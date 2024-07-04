@@ -8,34 +8,39 @@ const timeMovie=document.getElementById('timeMovie')
 const discriptMovie=document.getElementById('discriptMovie')
 const imgMovie=document.getElementById('poster')
 let comments;
-async function showMovieByMovieId(){
-    try {
-        console.log(movieId);
-		const response = await axios.get(`http://localhost:5000/api/Film/show-movie-byid`, { params: { movieId } })
-		.then(response => {
-			const movie = response.data;
-			console.log(movie)
-    nameMovie.textContent = movie[0].movieName;
-    imgMovie.src = movie[0].movieImg;
-    yearMovie.textContent = movie[0].movieYear;
-    avarageRatingMovie.textContent = movie[0].avarageRating;
-    genreMovie.textContent = movie[0].movieGenre;
-    timeMovie.textContent = movie[0].movieTime;
-    discriptMovie.textContent = movie[0].movieDiscript;
-    comments = movie[0].Comments;
-	console.log()
-    showComments(comments);
+  async function showMovieByMovieId(){
+      try {
+          console.log(movieId);
+      const response = await axios.get(`http://localhost:5000/api/Film/show-movie-byid`, { params: { movieId } })
+      .then(async response => {
+        const movie = response.data;
+        console.log(movie)
+        comments = movie[0].Comments;
+      nameMovie.textContent = movie[0].movieName;
+      imgMovie.src = movie[0].movieImg;
+      yearMovie.textContent = movie[0].movieYear;
+      console.log(1);
+      genreMovie.textContent = movie[0].movieGenre;
+      timeMovie.textContent = movie[0].movieTime;
+      discriptMovie.textContent = movie[0].movieDiscript;
+    console.log(comments)
+    const averageRating = await showMovieRating(comments);
+    avarageRatingMovie.textContent =  averageRating;
 
-		})
-		.catch(error => {
-			console.error(error);
-		});
-		console.log(8)
-      //  return response.data;
-    } catch (error) {
-        throw new Error('Failed to get comments: ' + error.message);
-    }
-}
+    
+      showComments(comments);
+
+
+      })
+      .catch(error => {
+        console.error(error);
+      });
+      console.log(8)
+        //  return response.data;
+      } catch (error) {
+          throw new Error('Failed to get comments: ' + error.message);
+      }
+  }
 showMovieByMovieId();
  document.getElementById("commAdd-btn").onclick=async function(){
 	event.preventDefault()
@@ -74,6 +79,7 @@ function showComments(data){
     const commentsEl = document.querySelector(".comments");
     commentsEl.innerHTML = "";
     data.forEach(comment => {
+      console.log(comment.id);
         const commentEl = document.createElement("div");
         commentEl.classList.add("comment");
         commentEl.innerHTML = `
@@ -88,7 +94,62 @@ function showComments(data){
             </ul>
             <form>
         `;
+        const deleteBtn = commentEl.querySelector('.close-btn');
+
+        deleteBtn.addEventListener('click', () => {
+            deleteComment(comment.id);
+        });
+
         commentsEl.appendChild(commentEl);
     });
 }
-  
+function deleteComment(id) {
+  axios.delete(`http://localhost:5000/api/Comment/deleteComment`, {
+    data: { id }
+  })
+  .then(function (response) {
+    console.log(`Deleted account with ID: ${id}`);
+  })
+  .catch(function (error) {
+    console.error('Error deleting account:', error);
+  });
+  console.log('Удаление комментария с ID:', id);
+  // Удаляем элемент комментария из DOM
+  window.location.reload();
+}
+ async function showMovieRating(data) {
+  const num = [];
+  data.forEach(comments => {
+    console.log(comments.rating);
+    num.push(comments.rating);
+  });
+  console.log(num);
+
+  try {
+    if (num.length === 0) {
+      console.log('Массив рейтингов пустой!');
+      return 0; // или возвращайте какое-то значение по умолчанию
+    }
+    let average = await sendMovieRatings(num);
+    console.log(average);
+    return average;
+  } catch (error) {
+    console.error('Ошибка в showMovieRating:', error);
+    throw error; // пробрасываем ошибку дальше
+  }
+}
+async function sendMovieRatings(ratings) {
+  try {
+    if (ratings.length === 0) {
+      console.log('Массив рейтингов пустой!');
+      return 0; // или возвращайте какое-то значение по умолчанию
+    }
+    const response = await axios.post(`http://localhost:5000/api/Comment/rating`, ratings);
+    const averageRating = response.data;
+    console.log(averageRating);
+    return averageRating;
+  } catch (error) {
+    console.error('Ошибка в sendMovieRatings:', error);
+    throw error; // пробрасываем ошибку дальше
+  }
+}

@@ -9,6 +9,7 @@ const User = sequelize.define('user', {
     name1:{type:DataTypes.STRING,defaultValue: "Гость"},
     surname:{type:DataTypes.STRING,defaultValue: ""},
     img: {type: DataTypes.STRING, allowNull: true},
+    counter: {type: DataTypes.INTEGER, defaultValue: 0 },
     
 })
 

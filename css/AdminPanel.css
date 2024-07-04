@@ -78,3 +78,44 @@ h1 {
 font-size: 30px;
 
   }
+  /* Стили для списка */
+#accounts-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Стили для элементов списка */
+#accounts-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #703333;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Стили для аккаунт-информации */
+#accounts-list li span {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Стили для кнопки удаления */
+#accounts-list li .delete-button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#accounts-list li .delete-button:hover {
+  background-color: #c0392b;
+}

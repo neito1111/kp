@@ -7,5 +7,7 @@ router.post('/save-comment', commentController.saveCommentController)
 router.get('/:id', commentController.getCommentsByMovieId.bind(commentController));
 //router.get('/', deviceController.getAll)
 //router.get('/:id', deviceController.getOne)
+router.delete('/deleteComment',commentController.deleteCommentsById)
+router.post('/rating',commentController.getRatingByMovieId)
 
 module.exports = router

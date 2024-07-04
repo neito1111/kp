@@ -11,5 +11,7 @@ router.post('/logout', userController.logout)
 router.put('/change-password', userController.changePassword)
 router.put('/uploadAvatarIMG',userController.uploadAvatarIMG)
 router.get('/getInfoUser',userController.getInfoUser)
+router.delete('/deleteUser',userController.deleteUser)
+router.post('/userInfoById',userController.userInfoById)
 
 module.exports = router
